@@ -106,7 +106,7 @@ export const QuizForm = (props: IQuizFormProps) => {
       <section className="py-4">
         <PrimaryButton
           type="submit"
-          disabled={Object.values(validation).some((v) => v < 3) || busy}
+          disabled={Object.values(validation).some((v) => v < 1) || busy}
         >
           Add Question
         </PrimaryButton>
