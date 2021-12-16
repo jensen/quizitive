@@ -33,3 +33,5 @@ export type IQuizResults = {
   attempt: IAttempt;
   questions: any;
 };
+
+export type IAttemptWithQuiz = IAttempt & { quiz: IQuizWithQuestions };

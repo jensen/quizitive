@@ -6,6 +6,7 @@ import cx from "classnames";
 import { PrimaryLink } from "components/Primary";
 import React from "react";
 import { IAnswer } from "services/types/resources";
+import { useAuth } from "context/auth";
 
 const intro = {
   yikes: "Ouch. ",
@@ -75,6 +76,8 @@ const QuizQuestion = (props: IQuizQuestionProps) => {
 export default function QuizResults() {
   const { id, slug } = useParams();
 
+  const auth = useAuth();
+
   if (!id || !slug) throw new Error("Could not find id");
 
   const quiz = useQuiz(slug);
@@ -120,7 +123,12 @@ export default function QuizResults() {
           );
         })}
       </ul>
-      <PrimaryLink to="/quizzes">Back to Quizzes</PrimaryLink>
+      <div className="flex space-x-2">
+        <PrimaryLink to="/quizzes">Quizzes</PrimaryLink>
+        <PrimaryLink to={`/users/${auth.user?.user_metadata.name}`}>
+          All Results
+        </PrimaryLink>
+      </div>
     </div>
   );
 }

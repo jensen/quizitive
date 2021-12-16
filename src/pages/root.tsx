@@ -11,7 +11,7 @@ export default function Index() {
   return (
     <main className="h-full flex flex-col">
       <Header />
-      <section className="flex-1 flex justify-center bg-pink-600">
+      <section className="flex-1 flex justify-center">
         <div className="w-full flex justify-center p-6">
           <Outlet />
         </div>

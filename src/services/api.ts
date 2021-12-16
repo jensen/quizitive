@@ -9,9 +9,10 @@ import type {
   IQuizWithQuestions,
   IQuizWithUser,
   IQuizResults,
+  IUser,
+  IAttempt,
 } from "./types/resources";
 import supabase from "services";
-import { differenceInQuartersWithOptions } from "date-fns/fp";
 
 export const getQuizSlugs = (id: string) =>
   supabase
@@ -83,6 +84,20 @@ export const getResults = (id: string) =>
       return a;
     }, {}),
   })) as Promise<IQuizResults>;
+
+export const getAttempts = (name: string) =>
+  supabase
+    .from<IUser>("profiles")
+    .select()
+    .eq("name", name)
+    .single()
+    .then(({ data }) =>
+      supabase
+        .from("attempts")
+        .select("*, quiz:quiz_id(*, questions!quiz_id(*))")
+        .eq("user_id", data?.id)
+        .then(({ data }) => data)
+    ) as Promise<IAttempt & { quiz: IQuizWithQuestions }>;
 
 export const createQuiz = (quiz: ICreateQuiz) =>
   supabase

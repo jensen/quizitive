@@ -8,6 +8,7 @@ import type {
   IQuizWithQuestions,
   IQuizWithUser,
   IQuizResults,
+  IAttempt,
 } from "services/types/resources";
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import {
@@ -18,6 +19,7 @@ import {
   createQuiz,
   updateQuiz,
   createQuestion,
+  getAttempts,
 } from "services/api";
 
 export function useQuizLookup({ id, slug }: { id?: string; slug?: string }) {
@@ -104,4 +106,13 @@ export function useCreateQuestion(id: string) {
     create: mutation.mutateAsync,
     busy: mutation.isLoading,
   };
+}
+
+export function useDashboard(name: string) {
+  const { data } = useQuery<(IAttempt & { quiz: IQuizWithQuestions })[]>(
+    ["dashboard", name],
+    () => getAttempts(name) as any
+  );
+
+  return data;
 }

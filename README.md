@@ -21,14 +21,13 @@ Mostly matched the requirements. The project was rushed, so some of the polish m
 
 - Time it took to finish the quiz
 - How many correct answers did they get
-- A message showing if he passed or failed the quiz
+- A message showing if they passed or failed the quiz
 
 ### Bonus features
 
 1. ✅ Add multiple quizzes to the application. User can select which one to take
-2. ✅ User can complete a quiz multiple times
+2. ✅ User can create an account and have all the scores saved in their dashboard. User can complete a quiz multiple times
 3. ✅ User can create their own quizzes
-4. ✅ User can create an account to save quiz attempts
 
 ## Technical Specifications
 

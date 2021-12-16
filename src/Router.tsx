@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AuthProvider from "context/auth";
+import UsersIndex from "pages/users";
+import UsersView from "pages/users/view";
 
 const Root = React.lazy(() => import("pages/root"));
 const Index = React.lazy(() => import("pages/index"));
@@ -29,6 +31,9 @@ export default function Router() {
                   <Route path=":id" element={<QuizResults />} />
                 </Route>
               </Route>
+            </Route>
+            <Route path="users/*" element={<UsersIndex />}>
+              <Route path=":name" element={<UsersView />} />
             </Route>
           </Route>
         </Routes>

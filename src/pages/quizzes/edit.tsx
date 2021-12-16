@@ -137,7 +137,7 @@ export default function QuizEdit() {
   return (
     <div className="w-96">
       <div className="flex justify-between">
-        <h2 className="text-white font-bold text-6xl">{quiz.name}</h2>
+        <h2 className="font-bold text-6xl">{quiz.name}</h2>
         <span className="px-2 h-6 flex items-center text-xs leading-5 font-semibold rounded-full bg-pink-100 text-pink-800">
           {quiz.published ? "Published" : "Unpublished"}
         </span>
@@ -146,8 +146,8 @@ export default function QuizEdit() {
         Created on {format(new Date(quiz.created_at), "MMMM do, yyyy")} by{" "}
         {quiz.user.name}
       </h3>
-      <h3 className="text-white font-bold text-lg">Questions</h3>
-      <ul className="text-white text-lg font-light space-y-2">
+      <h3 className="font-bold text-lg">Questions</h3>
+      <ul className="text-lg font-light space-y-2">
         {quiz.questions.map((question, index) => (
           <li key={question.id}>
             <span className="text-sm">{index + 1}</span>. {question.content}
