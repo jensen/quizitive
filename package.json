@@ -1,0 +1,30 @@
+{
+  "name": "quizitive",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^1.28.5",
+    "classnames": "^2.3.1",
+    "date-fns": "^2.27.0",
+    "react": "^18.0.0-rc.0-next-3b3daf557-20211210",
+    "react-dom": "^18.0.0-rc.0-next-3b3daf557-20211210",
+    "react-query": "^3.34.2",
+    "react-router": "^6.1.1",
+    "react-router-dom": "^6.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.2",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2",
+    "vite-tsconfig-paths": "^3.3.17"
+  }
+}
